@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Print</title>
+    
+
+
+</head>
+<body>
+    <div class="main">
+        <h1> Generating Tables Using JavaScript</h1>
+        <h2> Assignment by <a href="https://www.linkedin.com/in/mansoorahmed-k/">Mansoor Ahmed</a> </h2>
+        <p>Enter a number between 1 and 20:</p>
+        <input type="number" id="inputNumber" placeholder="Enter Number">
+        <button onclick="generateTables()">Generate Tables</button>
+    </div>
+    <div id="output"></div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <script src="app.js"></script>
+    <style>
+        :root {
+            
+            --page-background: 277deg, 55%, 12%;
+            --text-base: 277deg, 55%, 40%;
+            --text-hover: 307deg, 72%, 86%;
+            --shadow-start: 52deg, 100%, 72%;
+            --shadow-end: 282deg, 90%, 50%;
+            --shadow-inner: 277deg, 90%, 62%;
+           
+        }
+        html,body{
+            background: hsla(var(--page-background), 1);
+            background-size: cover;
+            width: 100vw;
+            height: 100vh;
+            background-position: fixed;
+            background-repeat: no-repeat;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .main{
+            text-align: center;
+            color: #fff;
+
+        }
+
+
+
+        .table-container {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 10%;
+            text-align: center;
+            margin: 20px;
+            
+        }
+    
+        #output{
+            display: flex;
+            justify-content: center;
+            
+            flex-wrap: wrap;
+            color: #fff;
+           
+        }
+
+        button {
+            
+            all: unset;
+            color: hsla(var(--text-base), 1);
+            font: 700 1.125rem/1.2 Raleway, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0.85em;
+            max-width: 100%;
+            width: 12em;
+            background: inherit;
+            background-clip: padding-box;
+            border: 5px solid hsla(var(--text-base), 1);
+            border-radius: 2em;
+            cursor: pointer;
+            position: relative;
+            transition: 0.25s ease-out;
+        }
+        button::before, button::after {
+            content: "";
+            border-radius: inherit;
+            transition: inherit;
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        button::before {
+            inset: -0.2em;
+            z-index: -1;
+            background: linear-gradient(hsla(var(--shadow-start), 1), hsla(var(--shadow-end), 1));
+            filter: blur(1.2em) saturate(1.2);
+            transform-origin: bottom;
+            transform: scaleY(0.5);
+            opacity: 0;
+        }
+        button::after {
+            box-shadow: inset 0 0 0 1px #fff, 0 0 0 4px rgba(255, 255, 255, 0.7), 1px 1px 0 4px #fff;
+            mix-blend-mode: overlay;
+            opacity: 0;
+        }
+        button:hover, button:focus {
+            color: hsla(var(--text-hover), 1);
+            border-color: transparent;
+            box-shadow: inset 0 1.4em 0 hsla(var(--shadow-inner), 0.1), inset 0 0 1.4em hsla(var(--shadow-inner), 0.32), 0 1px 1px hsla(var(--shadow-inner), 0.32);
+        }
+        button:hover::before, button:hover::after, button:focus::before, button:focus::after {
+            transform: none;
+            opacity: 1;
+        }
+
+
+
+
+
+        /* Input field */
+        input {
+            all: unset;
+            color: hsla(var(--text-hover), 1);
+            font: 700 1.125rem/1.2 Raleway, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0.85em;
+            max-width: 100%;
+            width: 16em;
+            background: inherit;
+            background-clip: padding-box;
+            border: 5px solid hsla(var(--text-base), 1);
+            border-radius: 2em;
+            cursor: pointer;
+            position: relative;
+            transition: 0.25s ease-out;
+        }
+        input::before, button::after {
+            content: "";
+            border-radius: inherit;
+            transition: inherit;
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        input::before {
+            inset: -0.2em;
+            z-index: -1;
+            background: linear-gradient(hsla(var(--shadow-start), 1), hsla(var(--shadow-end), 1));
+            filter: blur(1.2em) saturate(1.2);
+            transform-origin: bottom;
+            transform: scaleY(0.5);
+            opacity: 0;
+        }
+       
+        input:hover, button:focus {
+            color: hsla(var(--text-hover), 1);
+            /* border-color: transparent; */
+            /* box-shadow: inset 0 1.4em 0 hsla(var(--shadow-inner), 0.1), inset 0 0 1.4em hsla(var(--shadow-inner), 0.32), 0 1px 1px hsla(var(--shadow-inner), 0.32); */
+        }
+
+
+        ::placeholder {
+            color: hsla(var(--text-base), 1);
+            opacity: 1; /* Firefox */
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: hsla(var(--text-base), 1);
+        }
+
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: hsla(var(--text-base), 1);
+        }
+       
+        h2{ 
+            color: hsla(var(--text-base), 1);
+        }
+
+        a{
+            text-decoration: none;
+            color: hsla(var(--text-hover), 1);
+        }
+
+       
+    
+        </style>
+</body>
+</html>
